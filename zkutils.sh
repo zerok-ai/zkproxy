@@ -51,6 +51,7 @@ sh ./setup-users.sh
 sh ./setup-transparent-proxy.sh
 sh ./setup-project.sh
 
+BASENAME='EchoRelayApp'
 # ################################## COPYING PROJECT
 # if [ -z "$PROJECT_PATH" ]
 # then
