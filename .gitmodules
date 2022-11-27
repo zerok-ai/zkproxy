@@ -1,0 +1,4 @@
+[submodule "EchoRelayApp"]
+	path = EchoRelayApp
+	url = https://github.com/zerok-ai/EchoRelayApp.git
+        branch = zkproxy-demo

@@ -50,25 +50,33 @@ done
 
 sh ./setup-users.sh
 sh ./setup-transparent-proxy.sh
+sh ./setup-project.sh
 
-################################## COPYING PROJECT
-if [ -z "$PROJECT_PATH" ]
-then
-	BASENAME='EchoRelayApp'
-else
-	sudo mkdir /var/$newUSER/projects/
-	BASENAME=`basename $PROJECT_PATH`
-	sudo rm -rf /var/$newUSER/projects/$BASENAME
-	sudo mkdir /var/$newUSER/projects/$BASENAME
-	sudo cp -R $PROJECT_PATH/* /var/$newUSER/projects/$BASENAME/
-	sudo chown -R $newUSER /var/$newUSER
-fi
+# ################################## COPYING PROJECT
+# if [ -z "$PROJECT_PATH" ]
+# then
+# 	BASENAME='EchoRelayApp'
+# else
+# 	sudo mkdir /var/$newUSER/projects/
+# 	BASENAME=`basename $PROJECT_PATH`
+# 	sudo rm -rf /var/$newUSER/projects/$BASENAME
+# 	sudo mkdir /var/$newUSER/projects/$BASENAME
+# 	sudo cp -R $PROJECT_PATH/* /var/$newUSER/projects/$BASENAME/
+# 	sudo chown -R $newUSER /var/$newUSER
+# fi
 
 ################################## START APPLICATION IN VCODE
 if [ $VCODE_APPLICATION == 1 ]
 then
      echo 'Starting VS Code'
      sh ./newtab.sh su $newUSER -c "cd /var/$newUSER/projects/$BASENAME/ && npm install && /Applications/Visual[[:space:]]Studio[[:space:]]Code.app/Contents/MacOS/Electron ."
+fi
+
+################################## START APPLICATOIN
+if [ $APPLICATION == 1 ]
+then
+     echo 'Starting application'
+     sh ./newtab.sh su $newUSER -c "cd /var/$newUSER/projects/$BASENAME/ && npm install && CONF_FILE=./configuration/service1-definition.yaml npm start"
 fi
 
 
