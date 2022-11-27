@@ -11,7 +11,6 @@ helpFunction()
    echo ""
    echo "Usage: $0 [options]
          Options are listed below:
-         -p project-path \t\t\t//copies the project from passed project-path to $newUSER's home directory
          -a [start|stop] \t\t\t//starts the application
          -va \t\t\t\t\t//opens the project in VS Code from $newUSER user"
 

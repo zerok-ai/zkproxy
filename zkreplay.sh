@@ -20,9 +20,7 @@ helpFunction()
          -f {replay id} \t\t\t//egress replay id
          -i \t\t\t\t\t//start server replay
          -r \t\t\t\t\t//start client replay
-         -k \t\t\t\t\t//kills the egress replay
-         -a [start|stop] \t\t\t//starts the application
-         -va \t\t\t\t\t//opens the project in VS Code from $newUSER user"
+         -k \t\t\t\t\t//kills the egress replay"
 
    exit 1 # Exit script after printing help
 }
@@ -31,8 +29,8 @@ while [ $# -ne 0 ]; do
     case "$1" in
         -f)
              REPLAY_ID=$2
-             SERVER_REPLAY="$REPLAY_ID.ingress"
-			 CLIENT_REPLAY="$REPLAY_ID.egress"
+             SERVER_REPLAY="$REPLAY_ID.egress"
+			 CLIENT_REPLAY="$REPLAY_ID.ingress"
              shift; shift
              ;;
         -i)
