@@ -2,7 +2,7 @@
 
 newUSER='_zerok'
 newControllerUSER='_zerokc'
-REPLAY_ID='he63ei737ei3i7'
+REPLAY_ID='0'
 SERVER_REPLAY="$REPLAY_ID.egress"
 CLIENT_REPLAY="$REPLAY_ID.ingress"
 EGRESS=0

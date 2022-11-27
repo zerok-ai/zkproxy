@@ -49,5 +49,7 @@ then
 	#Set the password for the new user
 	sudo dscl . -passwd /Users/$newControllerUSER 12345
 else
+	sudo cp ./replays/* /var/$newControllerUSER/replays/
+	sudo chown $newControllerUSER /var/$newControllerUSER
   	echo "User $newControllerUSER already present"
 fi

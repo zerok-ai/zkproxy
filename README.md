@@ -46,7 +46,7 @@ Additional Operations: You can pass the following arguments for additional featu
 It can do the following:
 | Argument | Default | What it does |
 | ------ | ------ | ------ |
-| -f | he63ei737ei3i7 | [OPTIONAL] Pass the replay id. Corresponding egress and ingress files will be used for replaying in proxy mode  |
+| -f | 0 | [OPTIONAL] Pass the replay id. Corresponding egress and ingress files will be used for replaying in proxy mode  |
 | -i | NA | Starts the zkproxy in isolation/egress mode using the passed/default replay id  |
 | -r | NA | Starts the zkproxy in ingress mode using the passed/default replay id  |
 | -k | NA | Kills the zkproxy in isolation/egress |
