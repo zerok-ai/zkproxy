@@ -30,7 +30,7 @@ while [ $# -ne 0 ]; do
         -f)
              REPLAY_ID=$2
              SERVER_REPLAY="$REPLAY_ID.egress"
-			 CLIENT_REPLAY="$REPLAY_ID.ingress"
+		   CLIENT_REPLAY="$REPLAY_ID.ingress"
              shift; shift
              ;;
         -i)
@@ -79,6 +79,7 @@ then
 	FOUND_PID=`sh ./getpid.sh 8080`
 	if [ -z $FOUND_PID ]
 	then
+		sudo sh ./setup-transparent-proxy.sh
 		echo 'Starting in server replay mode'
 		su $newControllerUSER -c "mitmdump --mode transparent --showhost -S /var/_zerokc/replays/$SERVER_REPLAY &"
 		# sh ./newtab.sh su $newControllerUSER -c "mitmdump --mode transparent --showhost -S /var/_zerokc/replays/$SERVER_REPLAY &"

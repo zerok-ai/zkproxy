@@ -5,6 +5,7 @@ newControllerUSER='_zerokc'
 PROJECT_PATH=''
 APPLICATION=0
 VCODE_APPLICATION=0
+SETUP=0
 
 helpFunction()
 {
@@ -31,6 +32,10 @@ while [ $# -ne 0 ]; do
              APPLICATION=1
              shift;
              ;;
+        -s)
+             SETUP=1
+             shift;
+             ;;
         -h)
              helpFunction
              exit 2
@@ -47,9 +52,13 @@ while [ $# -ne 0 ]; do
     esac
 done
 
-sh ./setup-users.sh
-sh ./setup-transparent-proxy.sh
-sh ./setup-project.sh
+if [ $SETUP == 1 ]
+then
+     sh ./setup-users.sh
+     sh ./undo-transparent-proxy.sh
+     sh ./setup-project.sh
+fi
+
 
 BASENAME='EchoRelayApp'
 # ################################## COPYING PROJECT
@@ -69,14 +78,14 @@ BASENAME='EchoRelayApp'
 if [ $VCODE_APPLICATION == 1 ]
 then
      echo 'Starting VS Code'
-     sh ./newtab.sh su $newUSER -c "cd /var/$newUSER/projects/$BASENAME/ && npm install && /Applications/Visual[[:space:]]Studio[[:space:]]Code.app/Contents/MacOS/Electron ."
+     sh ./newtab.sh su $newUSER -c "cd /var/$newUSER/projects/$BASENAME/ && /Applications/Visual[[:space:]]Studio[[:space:]]Code.app/Contents/MacOS/Electron ."
 fi
 
 ################################## START APPLICATOIN
 if [ $APPLICATION == 1 ]
 then
      echo 'Starting application'
-     sh ./newtab.sh su $newUSER -c "cd /var/$newUSER/projects/$BASENAME/ && npm install && CONF_FILE=./configuration/service1-definition.yaml npm start"
+     sh ./newtab.sh su $newUSER -c "cd /var/$newUSER/projects/$BASENAME/ && CONF_FILE=./configuration/service1-definition.yaml npm start"
 fi
 
 

@@ -19,4 +19,5 @@ else
 	sudo mkdir /var/$newUSER/projects/$BASENAME
 	sudo cp -R $PROJECT_PATH/* /var/$newUSER/projects/$BASENAME/
 	sudo chown -R $newUSER /var/$newUSER
+	su $newUSER -c "cd /var/$newUSER/projects/$BASENAME/ && npm install"
 fi
