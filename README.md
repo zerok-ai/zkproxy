@@ -34,7 +34,7 @@ Additional Operations: You can pass the following arguments for additional featu
 | Argument | What it does |
 | ------ | ------ |
 | -a | Starts the EchoRelayApp from the user '_zerok' |
-| -va | Opens the EchoRelayApp in VS Code from the user '_zerokc' |
+| -va | Opens the EchoRelayApp in VS Code from the user '_zerok' |
 
 ## zkreplay.sh
 It can do the following:
